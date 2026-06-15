@@ -547,6 +547,7 @@ h3 {
 .format-hero p,
 .format-card p,
 .format-panel p,
+.timeline-section p,
 .why-participate p,
 .fellowship-list p,
 .audience-grid p,
@@ -566,6 +567,7 @@ h3 {
 .process-card,
 .format-card,
 .format-panel,
+.timeline-item,
 .fellowship-list article,
 .audience-grid article,
 .competition-card,
@@ -834,6 +836,112 @@ h3 {
   color: var(--white);
   border-color: rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-section {
+  background:
+    radial-gradient(circle at 90% 12%, rgba(232, 92, 79, 0.12), transparent 20rem),
+    linear-gradient(180deg, var(--paper-warm), #f6efe3);
+}
+
+.timeline-list {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  left: 178px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--coral), var(--teal));
+  opacity: 0.5;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+  padding: 1.2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 2.35rem;
+  left: 171px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--paper-warm);
+  border-radius: 999px;
+  background: var(--coral);
+  box-shadow: 0 0 0 5px rgba(232, 92, 79, 0.14);
+  z-index: 2;
+}
+
+.timeline-item-featured {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.16);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(242, 187, 89, 0.26), transparent 14rem),
+    linear-gradient(140deg, #151d1c, #2f5f55);
+  box-shadow: var(--shadow-strong);
+}
+
+.timeline-item-featured::before {
+  background: var(--amber);
+  box-shadow: 0 0 0 5px rgba(242, 187, 89, 0.18);
+}
+
+.timeline-date {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  padding-right: 1.5rem;
+}
+
+.timeline-date span {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 40px;
+  align-items: center;
+  padding: 0.42rem 0.75rem;
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--amber);
+  font-weight: 900;
+}
+
+.timeline-date small {
+  max-width: 10.5rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.timeline-content {
+  padding: 0.3rem 0;
+}
+
+.timeline-content h3 {
+  font-size: 1.35rem;
+}
+
+.timeline-content p {
+  max-width: 720px;
+  margin-bottom: 0;
+}
+
+.timeline-item-featured .timeline-date small,
+.timeline-item-featured .timeline-content p {
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .format-section {
@@ -1400,6 +1508,7 @@ h3 {
   }
 
   .format-hero,
+  .timeline-item,
   .benefit-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1455,6 +1564,7 @@ h3 {
   .hero-grid,
   .split-layout,
   .format-hero,
+  .timeline-item,
   .prep-debate-grid,
   .why-participate,
   .fellowship-grid,
@@ -1593,6 +1703,7 @@ h3 {
   .content-panel,
   .vision-card,
   .process-card,
+  .timeline-item,
   .format-hero,
   .format-card,
   .format-panel,
@@ -1614,6 +1725,19 @@ h3 {
 
   .impact-path {
     grid-template-columns: 1fr;
+  }
+
+  .timeline-list::before,
+  .timeline-item::before {
+    display: none;
+  }
+
+  .timeline-date {
+    padding-right: 0;
+  }
+
+  .timeline-date small {
+    max-width: none;
   }
 
   .stand-focus-grid {
